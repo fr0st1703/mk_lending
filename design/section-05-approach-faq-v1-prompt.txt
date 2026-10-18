@@ -1,0 +1,16 @@
+Use case: ui-mockup with identity-preserve compositing. Create ONE horizontal 16:10 full-size desktop landing FIFTH SCREEN for Mihail Kozlov, Russian business automation specialist.
+Input image 1 is the exact man to incorporate: preserve his face, beard, hair, age, natural skin, clothing, proportions and relaxed pose with arms down. Identity lock, no beautification or facial redesign.
+Input image 2 is approved hero styling reference ONLY: match its dark graphite, reflective smoked glass with silver edge highlights, cyan #66FCF1 / teal #45A29E, off-white bold Cyrillic sans, depth-of-field network atmosphere. Do not copy hero layout or crossed-arms pose from image2. No collage, no browser/device frame.
+Navbar identical across top: bold 'Mihail Kozlov' left, links 'Услуги', 'Как работаю', 'Вопросы', outlined glass 'Обсудить задачу' right, slim one-line.
+Section title at x65 y150 spanning available width, exact 'Сначала разберёмся в вашей задаче' in bold sans, max two lines, around 46px. Supporting short sentence directly beneath: 'Подбираю решение под процессы бизнеса и обсуждаю план до начала разработки.' around20px. This is positioning from brief, no invented credentials.
+Below heading, asymmetrical composition: natural photographic portrait left around x65..625, head starts y330 and torso fades into bottom at y920. Right around x660..1530 ONE large tall smoked-glass FAQ panel with 24px corners, thin reflective edges, soft broad silver reflection top left, darker opaque center for legibility. Portrait partly in front of BACKGROUND mesh, no separate portrait card. Cyan rim illumination on shoulder and hair like approved hero, keep natural skin tone and exact recognizable face, few particles near shoulder, no lines over face. Man is smaller than hero, does not dominate.
+FAQ panel heading 'Частые вопросы', around30px. Five accordion rows, first expanded, four collapsed. Only ONE shared panel, no nested cards. Fine subtle separators, comfortable spacing and large type. Minimal plain plus signs on right of collapsed questions, minus on first, small neutral silver, NOT cyan arrows. Exact Russian text:
+Expanded question 'Сколько стоит разработка?'
+Answer below in readable regular 19px: 'Стоимость зависит от задачи, объёма работ и интеграций. Оценку согласуем после обсуждения.'
+Collapsed questions in order:
+'Какие сроки?'
+'Можно ли доработать решение позже?'
+'Что с поддержкой после запуска?'
+'С чего начать?'
+Question titles around22px, clear contrast. Fit all five rows comfortably, last row not clipped. No invented prices, time promises, testimonials, statistics, client logos, quote marks, name caption, badges, labels over photo or extra CTA at bottom.
+Background: spatial fine cyan wireframe ribbon low foreground and around far left, subtle distant polygon network behind portrait and right edge of glass, several defocused particles, dark quiet behind heading. Same continuous dark theme and palette as other sections. Overall composition spacious and refined, typography never overlaps face or background highlights. Static screenshot of a real usable fifth section. Output ONLY this screen.

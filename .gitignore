@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+test-results/
+playwright-report/
+*.tsbuildinfo
+.npm-cache/
+
+# Reproducible local QA output and provider request records
+qa/screenshots/
+qa/createya/
+qa/logo-preview-white.png
+design/generated/*-run.json
+*.log

@@ -1,0 +1,20 @@
+Use case: ui-mockup. Create ONE standalone horizontal 16:10 full-size high fidelity desktop landing page FOURTH SECTION for Mihail Kozlov, Russian business automation specialist. Reference is approved third services screen of SAME site, used for styling only. Match exact polished dark graphite, cyan #66FCF1 / muted teal #45A29E, off-white Cyrillic grotesk typography, photographic reflective smoke glass, soft refractive chrome edges and depth-of-field network background. No collage, no browser frame, no people.
+Keep identical slim floating glass navbar at top, bold 'Mihail Kozlov' left, right 'Услуги' 'Как работаю' 'Вопросы' and outlined 'Обсудить задачу'. One line.
+This section is a WORK PROCESS narrative, NOT a repeat of four-card service grid. Left-aligned headline exact 'От задачи до работающего решения' approx 48px, max two lines, at x65 y155. Directly below brief body 'На каждом этапе понятно, что делаем и что получаем.' approx20px. No eyebrow or numbering.
+Below header use ONE panoramic architectural smoked-glass slab, x60 y345 width1320 height420 for 1440x900-like canvas, subtly reflective and frosted with bright fine beveled outer rim, 24px corners. Inside slab FOUR equal-width spacious text groups read left to right. These are unboxed columns within ONE continuous surface, NOT four cards or grid tiles. Subtle vertical etched separations only between groups. All type front facing, sharp and highly readable, no overlapping artwork. Plenty internal padding. Each group has a functional title at around 26px, one short body at18px, then a cyan result label near bottom.
+EXACT column copy, word wrap naturally:
+First title 'Обсуждаем задачу'
+body 'Разбираем процессы и определяем, что нужно изменить.'
+bottom result 'Понятная цель'
+Second title 'Согласуем план'
+body 'Определяем объём работ, стоимость и сроки.'
+bottom result 'Согласованный план'
+Third title 'Разрабатываем'
+body 'Создаю решение и показываю промежуточный результат.'
+bottom result 'Рабочая версия'
+Fourth title 'Проверяем и запускаем'
+body 'Тестируем сценарии и готовим решение к использованию.'
+bottom result 'Готовность к работе'
+Under the panel outside glass at x70 y810 ONE readable neutral note exact 'Дальнейшая поддержка и развитие обсуждаются отдельно.' at18px, off-white. No CTA below, CTA only navbar.
+Visual storytelling element: a single elegant fine three-dimensional glass filament ribbon along lower portion of slab BEHIND the result labels, smoothly travels left to right with four shallow sculptural bends or polished glass anchor forms corresponding to four text groups, suggests sequential development. Extremely restrained cyan edge reflection and grey glass, no bright blobs or spheres, no arrowheads. It is background material, never touches text. No icons, no arrows, no numbers, no steps labelled Stage or Phase, no checkmark badges, no dotted pagination. Result labels are plain text, not pills.
+Background: continuous dark tech space, fine cyan spatial network receding to strong defocus at top right, crisp fine wireframe ribbon along bottom edge and left margin, keep behind heading calm, sparse bokeh near margins. Panel more opaque under typography for readability, visible reflection top left like architectural smoked glass. Composition spacious, commercially serious, no fake stats, no fake UI dashboards, no testimonials, no footer. Entire section within one viewport. Output ONLY this fourth section design.

@@ -1,0 +1,38 @@
+{
+  "provider": "Createya",
+  "model": "gpt-image2-t2i",
+  "resolution": "1K",
+  "common": "Original premium photoreal scientific CGI for a serious business automation landing page. Advanced optical engineering, volumetric smoked glass, precision machined silver, sophisticated refraction and small local optical caustics. Not flat icons or wireframe sketches. Palette ONLY cyan #66FCF1, muted teal #45A29E, cool silver, graphite. Isolated centered sculpture, all parts fully visible, generous 15 percent empty margins. Uniform PURE BLACK #000000 background including every outer edge, NO floor, horizon, environment, rectangular backing panel, scene-wide haze or background network. NO text, letters, numbers, labels, arrows, logos or watermarks. Asset will be screen-composited into translucent dark website glass; empty margins must remain absolutely pure black.",
+  "jobs": [
+    {
+      "name": "bots-science-v2",
+      "aspect_ratio": "4:3",
+      "prompt": "Subject: an exquisite advanced communications instrument. Two dimensional translucent optical message capsules, one larger and one smaller, linked through delicately routed cyan optical fibers and a highly detailed silver microprocessor core. Tangible thick beveled smoked glass, excellent internal reflections, credible laboratory art direction, precise modern graphic composition. Visual meaning: collecting requests, notification delivery, automated answers. No cartoon robot or emoji. Make it photographic, beautiful, tactile and sophisticated."
+    },
+    {
+      "name": "crm-science-v2",
+      "aspect_ratio": "4:3",
+      "prompt": "Subject: a precision-engineered information hub. A sculptural translucent crystalline data core with thin concentric floating storage plates inside, surrounded by three smaller polished glass satellite modules connected by cyan optical conduits. Clients, deals and tasks organized into one coherent system, shown as an elegant scientific optical instrument. Silver supports, smoked optical glass, immaculate dimensional product rendering and controlled microdetail. No cheap line-art cubes or generic database icon."
+    },
+    {
+      "name": "websites-science-v2",
+      "aspect_ratio": "4:3",
+      "prompt": "Subject: three elegant layered optical interface planes floating in perspective, like advanced laboratory displays. Carefully composed abstract modular interface regions etched into dimensional smoked glass, exquisite thin precision silver frames, subtle internal optical traces, a small connector and cyan data filaments linking the planes. The architecture of a connected business website, not an actual UI screenshot. Tangible material and sophisticated modern scientific visualization, no readable UI, no browser chrome, no flat outline icons."
+    },
+    {
+      "name": "automation-science-v2",
+      "aspect_ratio": "4:3",
+      "prompt": "Subject: an exceptionally refined optical systems model. A central refractive glass prism instrument with finely machined layered rings, four smaller silver-and-glass process modules around it, a few precisely routed cyan optical pathways linking the modules. The beauty of an engineered system: analysis, connection, orchestration. Credible exquisite scientific visualization, tangible materials, photoreal volumetric depth. No generic atom symbol, no cheap line-art spheres, no noisy cyberpunk."
+    },
+    {
+      "name": "process-science-v2",
+      "aspect_ratio": "16:9",
+      "prompt": "Subject: FOUR equally spaced compact scientific instruments connected left-to-right by one elegant thin cyan optical filament without arrowheads. Progression: (1) exploratory glass data particle cluster, (2) a precision silver-and-glass architectural planning instrument, (3) a nearly assembled crystalline computational module, (4) a finished luminous optical core in a beautiful engineered housing. Matching size and visual weight, full dimensional scientific CGI, no overlapping objects. CRITICAL COMPOSITION: the complete four-object frieze occupies ONLY the CENTRAL 22 percent of image HEIGHT as one very shallow horizontal band; huge pure black blank space above and below. All four objects and filament fully fit this central band. Seven percent black margin at left and right. Will be cropped into an ultra-wide short banner. No captions, infographic layout, surrounding environment, floor or horizon."
+    },
+    {
+      "name": "contact-science-v2",
+      "aspect_ratio": "4:3",
+      "prompt": "Subject: an exquisite scientific communications and collaboration instrument: two interlocking dimensional smoked-glass optical loops converging around a single luminous cyan crystalline core, delicate precision-machined silver supports and three carefully routed fiber-optic conduits. Visual metaphor for turning a conversation about a business problem into one clear shared solution. A coherent sculptural object, not separate icons. Restrained elegant laboratory product photography, thick optical glass, realistic refraction, local cyan light, excellent tactile material detail. Balanced horizontal composition, centered with generous pure black margins. No envelope, phone, handshake, literal UI, text or wireframe outlines. Match a premium dark graphite scientific business automation website."
+    }
+  ]
+}

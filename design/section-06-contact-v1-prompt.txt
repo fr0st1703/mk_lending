@@ -1,0 +1,16 @@
+Use case: ui-mockup. Create ONE horizontal 16:10 full-size desktop SIXTH AND FINAL SECTION for personal business automation landing by Mihail Kozlov. Input screenshot is approved THIRD section used for exact brand styling only: dark graphite, cyan #66FCF1 / teal #45A29E, off-white bold Cyrillic sans, architectural reflective smoked glass and depth-of-field network. Do not repeat services cards. No people. No device frame or collage.
+Same slim floating smoke-glass navigation along top, bold 'Mihail Kozlov' left, 'Услуги' 'Как работаю' 'Вопросы' and outlined 'Обсудить задачу' right.
+Main composition: spacious asymmetric 40/60 left-copy right-form, entire section fits 1440x900-like viewport including modest footer. Left headline at x70 y245 exact 'Обсудим вашу задачу' in large bold sans around58px, TWO lines. Under it exact 'Расскажите, что хотите изменить в работе бизнеса. Я свяжусь с вами, чтобы обсудить детали.' around21px max 4 lines. Beneath copy a restrained original sculptural folded smoked-glass ribbon with cyan refractive rim, gracefully emerging from distant network toward bottom-left. No envelope icon, no portrait, no extra slogan, no fake contact details.
+Right form pane x650..1515 y160..850: ONE premium smoked-glass panel with 24px corners, thin silver reflective edge, broad soft top reflection, dark opaque calm charcoal interior. Strong contrast and generous padding. Header 'Оставить заявку' around30px.
+Real form NORMAL EMPTY STATE:
+top row two equal width fields side by side with external labels ABOVE fields:
+'ФИО *' with placeholder 'Как к вам обращаться'
+'Телефон *' with placeholder 'Код страны и номер'
+Second row full-width textarea external label 'Описание задачи *', placeholder 'Что нужно автоматизировать?', comfortable height about140px.
+Below textarea helper text 'Опишите задачу своими словами.' in readable muted off-white.
+Then clearly UNCHECKED square checkbox aligned to first text line, label wraps two lines if needed:
+'Даю согласие на обработку персональных данных'
+and underlined link 'Политика конфиденциальности'.
+Below consent full-width substantive cyan-to-teal glass gradient submit button exact 'Отправить заявку', very dark graphite text, restrained rim highlights, radius16px, no arrow. Labels 18px, placeholders 17px and visibly readable #B9C7C9 on #182426-like dark input fill. Input height56px. Form controls with clear subtle silver borders and modest 12px corners. This is an empty form, no checked consent, no red errors in normal state. Keep all controls fully visible and comfortable spacing.
+Footer along bottom outside card, minimal fine top divider and small off-white 'Mihail Kozlov' left, 'Политика конфиденциальности' right. No fabricated email, phone, address, social accounts, legal entity or launch promises.
+Background spatial cyan network with deep defocus, finest crisp wireframe along lower left and far-right margin, generous quiet behind copy and form. No bokeh or network overlapping labels, no bright distractions under inputs. Keep approved glass material but input interiors dense and calm for accessibility. Entire page one dark theme. No prices, stats, assurances of response time, no extra badges. Exact legible Cyrillic. Output ONLY this sixth section normal form state.

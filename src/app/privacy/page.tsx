@@ -1,0 +1,5 @@
+import type { Metadata } from 'next';
+export const metadata: Metadata = { title: 'Политика обработки данных — Mihail Kozlov', robots: { index: false, follow: false }, alternates: { canonical: '/privacy' } };
+export default function Privacy() {
+  return <main className="legal-page container"><a className="wordmark" href="/">Mihail Kozlov</a><article className="glass"><h1>Политика обработки персональных данных</h1><p className="legal-status">Документ готовится. Приём заявок через форму ещё не подключён.</p><p>Здесь будет опубликована политика с данными оператора, целями и основанием обработки, сроками хранения, порядком удаления данных и сведениями об используемых сервисах.</p><p>До публикации политики данные из формы не сохраняются и не пересылаются владельцу сайта. При попытке отправки интерфейс покажет сообщение о недоступности.</p><p>Для связи с Михаилом Козловым: <a href="mailto:m.kozlov76@yandex.ru">m.kozlov76@yandex.ru</a> или <a href="https://t.me/up_netw0rk">Telegram @up_netw0rk</a>.</p><a className="button button-outline" href="/">Вернуться на сайт</a></article></main>;
+}

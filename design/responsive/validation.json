@@ -1,0 +1,117 @@
+{
+  "galleryCases": 30,
+  "allLinksExist": true,
+  "pngs": [
+    {
+      "file": "laptop-01-v2.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "laptop-01.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "laptop-02.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "laptop-03.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "laptop-04.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "laptop-05.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "laptop-06.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "mobile-01.png",
+      "width": 853,
+      "height": 1844
+    },
+    {
+      "file": "mobile-02-v2.png",
+      "width": 962,
+      "height": 1635
+    },
+    {
+      "file": "mobile-02.png",
+      "width": 962,
+      "height": 1635
+    },
+    {
+      "file": "mobile-03-v2.png",
+      "width": 724,
+      "height": 2172
+    },
+    {
+      "file": "mobile-03.png",
+      "width": 724,
+      "height": 2172
+    },
+    {
+      "file": "mobile-04.png",
+      "width": 853,
+      "height": 1844
+    },
+    {
+      "file": "mobile-05.png",
+      "width": 856,
+      "height": 1838
+    },
+    {
+      "file": "mobile-06.png",
+      "width": 747,
+      "height": 2106
+    },
+    {
+      "file": "mobile-menu.png",
+      "width": 853,
+      "height": 1844
+    },
+    {
+      "file": "tablet-01.png",
+      "width": 1048,
+      "height": 1501
+    },
+    {
+      "file": "tablet-02.png",
+      "width": 1048,
+      "height": 1501
+    },
+    {
+      "file": "tablet-03.png",
+      "width": 1048,
+      "height": 1501
+    },
+    {
+      "file": "tablet-04.png",
+      "width": 1048,
+      "height": 1501
+    },
+    {
+      "file": "tablet-05.png",
+      "width": 1048,
+      "height": 1501
+    },
+    {
+      "file": "tablet-06.png",
+      "width": 1048,
+      "height": 1501
+    }
+  ],
+  "note": "Checks cover gallery script and files, not browser rendering or responsive site implementation."
+}

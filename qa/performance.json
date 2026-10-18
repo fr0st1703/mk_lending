@@ -1,0 +1,92 @@
+{
+  "environment": "Local production build, Chromium headless, 390x844 touch, CPU 4x slower, 100ms latency, 200 KB/s download. Lab observations, not field Core Web Vitals.",
+  "cls": 0.044833841016541316,
+  "lcpMs": 1188,
+  "longTasks": [
+    {
+      "start": 1773.4000000001397,
+      "duration": 218
+    },
+    {
+      "start": 2261.6999999999534,
+      "duration": 111
+    },
+    {
+      "start": 2470.6999999999534,
+      "duration": 57
+    }
+  ],
+  "resources": [
+    {
+      "name": "/_next/image",
+      "bytes": 2639,
+      "type": "link"
+    },
+    {
+      "name": "/_next/image",
+      "bytes": 15755,
+      "type": "link"
+    },
+    {
+      "name": "/_next/static/chunks/23x7x8pznvj97.css",
+      "bytes": 10236,
+      "type": "link"
+    },
+    {
+      "name": "/_next/static/chunks/31qp8jfkw0x2h.js",
+      "bytes": 7711,
+      "type": "link"
+    },
+    {
+      "name": "/_next/static/chunks/1tty6l8tgntgq.js",
+      "bytes": 48697,
+      "type": "script"
+    },
+    {
+      "name": "/_next/static/chunks/2gvu8dyrhibpa.js",
+      "bytes": 72199,
+      "type": "script"
+    },
+    {
+      "name": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+      "bytes": 4690,
+      "type": "script"
+    },
+    {
+      "name": "/_next/static/chunks/0umf92h1sb77c.js",
+      "bytes": 3814,
+      "type": "script"
+    },
+    {
+      "name": "/_next/static/chunks/1-h63f7245id-.js",
+      "bytes": 42648,
+      "type": "script"
+    },
+    {
+      "name": "/assets/network-points-static.svg",
+      "bytes": 2099,
+      "type": "css"
+    },
+    {
+      "name": "/_next/static/media/open-sans-cyrillic-wght-normal.0orhtvbdpws0l.woff2",
+      "bytes": 26888,
+      "type": "css"
+    },
+    {
+      "name": "/_next/static/media/oswald-cyrillic-wght-normal.0hrvobmxxmrlj.woff2",
+      "bytes": 15988,
+      "type": "css"
+    },
+    {
+      "name": "/_next/static/media/oswald-latin-wght-normal.01c2-di5e_1xz.woff2",
+      "bytes": 28788,
+      "type": "css"
+    },
+    {
+      "name": "/_next/static/media/open-sans-latin-wght-normal.3n8ppntdid8x1.woff2",
+      "bytes": 48620,
+      "type": "css"
+    }
+  ],
+  "settledAnimationLongTasks": []
+}

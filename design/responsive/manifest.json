@@ -1,0 +1,133 @@
+{
+  "tool": "built-in imagegen",
+  "scope": "static responsive design concepts",
+  "cssReferenceWidths": {
+    "mobile": 390,
+    "tablet": 834,
+    "laptop": 1366
+  },
+  "wideDesktopReferences": [
+    "hero-concept-v3.png",
+    "section-02-business-tasks-v3.png",
+    "section-03-services-v1.png",
+    "section-04-process-v1.png",
+    "section-05-approach-faq-v2.png",
+    "section-06-contact-v1.png"
+  ],
+  "assets": [
+    {
+      "kind": "mobile",
+      "section": 1,
+      "file": "mobile-01.png",
+      "prompt": "mobile-01-prompt.txt"
+    },
+    {
+      "kind": "mobile",
+      "section": 2,
+      "file": "mobile-02-v2.png",
+      "prompt": "mobile-02-v2-prompt.txt"
+    },
+    {
+      "kind": "mobile",
+      "section": 3,
+      "file": "mobile-03-v2.png",
+      "prompt": "mobile-03-v2-prompt.txt"
+    },
+    {
+      "kind": "mobile",
+      "section": 4,
+      "file": "mobile-04.png",
+      "prompt": "mobile-04-prompt.txt"
+    },
+    {
+      "kind": "mobile",
+      "section": 5,
+      "file": "mobile-05.png",
+      "prompt": "mobile-05-prompt.txt"
+    },
+    {
+      "kind": "mobile",
+      "section": 6,
+      "file": "mobile-06.png",
+      "prompt": "mobile-06-prompt.txt"
+    },
+    {
+      "kind": "tablet",
+      "section": 1,
+      "file": "tablet-01.png",
+      "prompt": "tablet-01-prompt.txt"
+    },
+    {
+      "kind": "tablet",
+      "section": 2,
+      "file": "tablet-02.png",
+      "prompt": "tablet-02-prompt.txt"
+    },
+    {
+      "kind": "tablet",
+      "section": 3,
+      "file": "tablet-03.png",
+      "prompt": "tablet-03-prompt.txt"
+    },
+    {
+      "kind": "tablet",
+      "section": 4,
+      "file": "tablet-04.png",
+      "prompt": "tablet-04-prompt.txt"
+    },
+    {
+      "kind": "tablet",
+      "section": 5,
+      "file": "tablet-05.png",
+      "prompt": "tablet-05-prompt.txt"
+    },
+    {
+      "kind": "tablet",
+      "section": 6,
+      "file": "tablet-06.png",
+      "prompt": "tablet-06-prompt.txt"
+    },
+    {
+      "kind": "laptop",
+      "section": 1,
+      "file": "laptop-01-v2.png",
+      "prompt": "laptop-01-v2-prompt.txt"
+    },
+    {
+      "kind": "laptop",
+      "section": 2,
+      "file": "laptop-02.png",
+      "prompt": "laptop-02-prompt.txt"
+    },
+    {
+      "kind": "laptop",
+      "section": 3,
+      "file": "laptop-03.png",
+      "prompt": "laptop-03-prompt.txt"
+    },
+    {
+      "kind": "laptop",
+      "section": 4,
+      "file": "laptop-04.png",
+      "prompt": "laptop-04-prompt.txt"
+    },
+    {
+      "kind": "laptop",
+      "section": 5,
+      "file": "laptop-05.png",
+      "prompt": "laptop-05-prompt.txt"
+    },
+    {
+      "kind": "laptop",
+      "section": 6,
+      "file": "laptop-06.png",
+      "prompt": "laptop-06-prompt.txt"
+    },
+    {
+      "kind": "menu",
+      "section": 1,
+      "file": "mobile-menu.png",
+      "prompt": "mobile-menu-prompt.txt"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+Use case: ui-mockup. Create ONE full-size horizontal 16:10 desktop landing page THIRD SCREEN, services section for Mihail Kozlov business automation. Input is the approved HERO of same site used only as a styling reference. Continue its graphite dark background, reflective smoke-glass panels, cyan #66FCF1 and muted teal #45A29E, off-white bold Cyrillic sans typography. Do NOT include the portrait, do NOT reproduce hero. No device frame, no browser chrome, no collage.
+Maintain exact top floating glass navbar style: left bold white 'Mihail Kozlov', right 'Услуги' 'Как работаю' 'Вопросы' and outlined 'Обсудить задачу'. One line, slim height.
+Main content: left aligned section headline exact 'Решения под задачи вашего бизнеса' in bold sans, around 46px on 1440-wide canvas, max two lines. Under headline body exact 'От отдельного инструмента до связанной системы.' Readable 20px. Plenty space.
+Below, four service panels in a sophisticated asymmetric two-row bento layout that fits entire viewport with comfortable bottom margin. Top row wide left 60%, narrower right 40%; bottom row narrower left 40%, wider right 60%. Consistent 20px gaps. All four cells filled with meaningful service content, no empty cells. Soft 22px corners and thin reflective glass rims like approved design. Each panel about 250px tall. Glass variations intentional: top-left dark clear glass with subtle cyan refraction, top-right frosted silver smoke, bottom-left darker charcoal glass, bottom-right teal-tinted smoked glass. Calm dense dark area under text. No nested cards. No statistics, no price, no fabricated UI screenshots, no arrows or chevrons, no number labels, no badges.
+Exact copy for panels, each has title around 28px and one concise 18-20px sentence:
+TOP LEFT title 'Telegram / MAX-боты'
+body 'Сбор заявок, уведомления и ответы на типовые вопросы.'
+Supporting visual on right side of this wide panel: photorealistic small sculptural translucent glass speech bubbles, empty, not actual chat UI, cyan edge lighting, subtly integrated with material. NO robot mascot or people.
+TOP RIGHT title 'CRM под ваши процессы'
+body 'Клиенты, сделки и задачи в единой системе.'
+Supporting abstract visual: three connected smoke glass volumes at lower right, clear organized grouping, restrained silver cyan edges. No dashboard, no text on objects.
+BOTTOM LEFT title 'Сайты и лендинги'
+body 'Представление бизнеса, заявки и связь с вашими сервисами.'
+Visual: restrained folded translucent glass planes toward lower-right corner, editorial sculptural artwork, NOT fake browser window.
+BOTTOM RIGHT title 'Проектирование автоматизации'
+body 'Разбор процессов и план внедрения под вашу задачу.'
+Visual right side: a few transparent glass nodes connected by delicate fine filaments, suggesting connected business processes, no arrows. Keep text fully readable with no visual overlap.
+All visual objects are secondary material studies integrated into service panels, consistent with physical glass, not icon sets or a software dashboard. Reserve about 65% panel width for copy in wide panels; narrow panels have text top-left and small visual bottom-right. Do not let body or title collide with object.
+Background: spatial fine cyan wireframe ribbons and network filaments visible around edges, soft distant bokeh and depth-of-field blur, brighter crisp mesh toward bottom right, quieter area under heading. Less visually busy than hero. Whole page one dark theme. No purple, no green, no testimonials, no extra captions, no footer, no scroll cue. Render accurate readable Russian copy. This is a commercially credible polished web design, not a sci-fi game menu.
