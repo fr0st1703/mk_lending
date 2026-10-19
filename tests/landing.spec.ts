@@ -43,7 +43,7 @@ test('mobile modal: focus, Escape, navigation and destination visibility', async
   expect(headingTop).toBeGreaterThan(76);
 });
 
-test('FAQ keeps at most one answer open and supports keyboard', async ({ page }) => {
+test('FAQ always keeps exactly one answer open and supports keyboard', async ({ page }) => {
   await page.goto('/');
   const first = page.getByRole('button', { name: 'Сколько стоит разработка?' });
   const second = page.getByRole('button', { name: 'Какие сроки?' });
@@ -52,7 +52,14 @@ test('FAQ keeps at most one answer open and supports keyboard', async ({ page })
   await expect(second).toHaveAttribute('aria-expanded', 'true');
   await expect(first).toHaveAttribute('aria-expanded', 'false');
   await page.keyboard.press('Enter');
-  await expect(second).toHaveAttribute('aria-expanded', 'false');
+  await expect(second).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Space');
+  await expect(second).toHaveAttribute('aria-expanded', 'true');
+  for (const button of await page.locator('.faq-item button').all()) {
+    await button.click(); await button.click();
+    await expect(page.locator('.faq-item button[aria-expanded=true]')).toHaveCount(1);
+    await expect(page.locator('.faq-answer:not([hidden])')).toHaveCount(1);
+  }
 });
 
 test('form validates fields, focuses the first error, keeps data on server 503', async ({ page }) => {

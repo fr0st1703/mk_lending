@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { EmailContact } from '@/components/email-contact';
 import { VisitCounter } from '@/components/visit-counter';
 import { Header } from '@/components/header';
 import { NetworkBackground } from '@/components/network-background';
@@ -41,7 +42,7 @@ export default function Home() {
           <div className="section-heading"><h2 id="tasks-title">Когда бизнесу нужна<br className="desktop-break" /> автоматизация</h2><p>Начинаем с задач, которые мешают ежедневной работе.</p></div>
           <div className="tasks-panel glass">
             <div className="tasks-labels" aria-hidden="true"><span>Знакомая ситуация</span><span>Что можно изменить</span></div>
-            <dl>{tasks.map(([problem, solution], i) => <div className="task-pair" data-reveal key={problem} style={{ '--delay': `${i * 70}ms` } as React.CSSProperties}><dt>{problem}</dt><dd>{solution}</dd></div>)}</dl>
+            <dl>{tasks.map(([problem, solution], i) => <div className="task-pair" key={problem}><dt>{problem}</dt><dd className="task-solution" data-task-solution style={{ '--task-delay': `${i * 90}ms` } as React.CSSProperties}><span>{solution}</span></dd></div>)}</dl>
           </div>
         </div>
       </section>
@@ -79,7 +80,7 @@ export default function Home() {
           <address className="contact-links" aria-label="Контакты Михаила Козлова">
             <a href="https://www.instagram.com/guardian1703/" target="_blank" rel="noopener noreferrer" aria-label="Instagram guardian1703 (в новой вкладке)" title="Instagram"><Image src="/assets/icons/instagram.webp" width={36} height={36} alt="" /></a>
             <a href="https://t.me/up_netw0rk" target="_blank" rel="noopener noreferrer" aria-label="Telegram @up_netw0rk (в новой вкладке)" title="Telegram"><Image src="/assets/icons/telegram.webp" width={36} height={36} alt="" /></a>
-            <a className="contact-email" href="mailto:m.kozlov76@yandex.ru" aria-label="Написать на m.kozlov76@yandex.ru" title="Электронная почта"><Image src="/assets/icons/email.webp" width={36} height={36} alt="" /></a>
+            <EmailContact />
           </address>
           <footer className="footer"><a href="#home">Mihail Kozlov</a><a href="/privacy" target="_blank" rel="noopener">Политика конфиденциальности</a></footer>
         </div>

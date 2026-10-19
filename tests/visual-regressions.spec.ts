@@ -57,7 +57,7 @@ test('glass keeps working backdrop blur after CSS production compilation', async
   expect(await page.locator('.hero-copy').evaluate(el => getComputedStyle(el).backdropFilter)).toBe('blur(7px)');
 });
 
-test('FAQ panel, section and document keep their size for every open and closed state', async ({ page }) => {
+test('FAQ panel, section and document keep their size for every question switch and repeated click', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const [width, height] of [[1906,927],[1440,900],[1280,720],[834,1194],[390,844],[320,568]]) {
     await page.setViewportSize({ width, height }); await page.goto('/#questions');
@@ -69,7 +69,7 @@ test('FAQ panel, section and document keep their size for every open and closed 
       await button.click();
       expect(await measure(), `${width}px open FAQ`).toEqual(initial);
       await button.click();
-      expect(await measure(), `${width}px closed FAQ`).toEqual(initial);
+      expect(await measure(), `${width}px repeated FAQ click`).toEqual(initial);
     }
   }
 });
