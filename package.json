@@ -1,11 +1,15 @@
 {
   "name": "mihail-kozlov-landing",
   "private": true,
+  "engines": { "node": ">=24.0.0" },
+  "overrides": { "exceljs": { "uuid": "^11.1.1" } },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
+    "admin:setup": "node scripts/setup-admin.mjs",
+    "db:cleanup": "node --env-file-if-exists=.env.local scripts/cleanup-data.mjs",
     "test:e2e": "playwright test",
     "assets": "node scripts/prepare-assets.mjs",
     "prototype": "node prototype/server.mjs"
@@ -16,9 +20,11 @@
     "@fontsource-variable/oswald": "^5.3.0",
     "@fontsource-variable/roboto": "^5.3.0",
     "@phosphor-icons/react": "^2.1.10",
+    "exceljs": "^4.4.0",
     "next": "^16.4.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {

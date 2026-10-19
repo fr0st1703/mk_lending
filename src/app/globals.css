@@ -158,8 +158,6 @@ img { display: block; max-width: 100%; height: auto; }
 .submit-button { width: 100%; min-height: 60px; font-size: 23px; border-radius: 17px; }
 .submit-button:disabled { opacity: .65; }
 .submit-error { color: #ffb7b7; border-left: 2px solid #ffb7b7; padding-left: 12px; margin-bottom: 16px; font-size: 16px; }
-.form-availability { font-size: 14px; color: #c3d0d1; margin-top: 14px; line-height: 1.45; }
-.form-availability a { color: var(--accent); }
 .form-success { min-height: 480px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 24px; }
 .form-success h3 { margin: 0; }
 .form-success p { font-size: 21px; }
@@ -400,3 +398,12 @@ img { display: block; max-width: 100%; height: auto; }
   .desktop-nav { justify-content: center; gap: clamp(56px, 6vw, 104px); margin-left: 0; }
   .header-cta { justify-self: end; }
 }
+.contact-links { flex-direction: row; align-items: center; gap: 16px; }
+.contact-links a { width: 52px; height: 52px; justify-content: center; border-radius: 14px; transition: background-color .18s; }
+.contact-links a:hover { background-color: #66fcf11a; }
+.contact-links img { width: 36px; height: 36px; object-fit: contain; }
+.contact-email img { filter: brightness(0) invert(1); }
+.legal-page article h2 { font-size: clamp(23px, 3vw, 30px); line-height: 1.3; margin: 32px 0 14px; }
+.legal-page article a:not(.button) { text-decoration: underline; text-underline-offset: 3px; }
+.legal-draft { padding: 16px; border-left: 2px solid #66fcf1; background: #66fcf10a; }
+.legal-page article { overflow-wrap: anywhere; }

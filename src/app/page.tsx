@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { VisitCounter } from '@/components/visit-counter';
 import { Header } from '@/components/header';
 import { NetworkBackground } from '@/components/network-background';
 import { FAQ } from '@/components/faq';
@@ -13,11 +14,12 @@ export default function Home() {
     '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'Михаил Козлов — автоматизация бизнеса',
     description: 'Разработка ботов, CRM, сайтов и проектирование автоматизации под процессы бизнеса.',
     ...(siteUrl ? { url: siteUrl } : {}), email: 'm.kozlov76@yandex.ru', telephone: '+79679804740',
-    sameAs: ['https://t.me/up_netw0rk'],
+    sameAs: ['https://t.me/up_netw0rk', 'https://www.instagram.com/guardian1703/', 'https://github.com/fr0st1703'],
     founder: { '@type': 'Person', name: 'Михаил Козлов', alternateName: 'Mihail Kozlov' },
     hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Автоматизация бизнеса', itemListElement: services.map(service => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: service.title, description: service.text } })) },
   };
   return <>
+    <VisitCounter />
     <a className="skip-link" href="#main">Перейти к содержимому</a>
     <NetworkBackground />
     <Header />
@@ -74,7 +76,11 @@ export default function Home() {
             <div className="contact-copy"><h2 id="contact-title">Обсудим вашу задачу</h2><p>Расскажите, что хотите изменить в работе бизнеса. Я свяжусь с вами, чтобы обсудить детали.</p><ScientificArtwork className="contact-ribbon" kind="contact" /></div>
             <LeadForm />
           </div>
-          <address className="contact-links" aria-label="Контакты Михаила Козлова"><a href="mailto:m.kozlov76@yandex.ru">m.kozlov76@yandex.ru</a><a href="https://t.me/up_netw0rk" target="_blank" rel="noopener noreferrer">Telegram: @up_netw0rk</a><a href="tel:+79679804740">+7 967 980-47-40</a></address>
+          <address className="contact-links" aria-label="Контакты Михаила Козлова">
+            <a href="https://www.instagram.com/guardian1703/" target="_blank" rel="noopener noreferrer" aria-label="Instagram guardian1703 (в новой вкладке)" title="Instagram"><Image src="/assets/icons/instagram.webp" width={36} height={36} alt="" /></a>
+            <a href="https://t.me/up_netw0rk" target="_blank" rel="noopener noreferrer" aria-label="Telegram @up_netw0rk (в новой вкладке)" title="Telegram"><Image src="/assets/icons/telegram.webp" width={36} height={36} alt="" /></a>
+            <a className="contact-email" href="mailto:m.kozlov76@yandex.ru" aria-label="Написать на m.kozlov76@yandex.ru" title="Электронная почта"><Image src="/assets/icons/email.webp" width={36} height={36} alt="" /></a>
+          </address>
           <footer className="footer"><a href="#home">Mihail Kozlov</a><a href="/privacy" target="_blank" rel="noopener">Политика конфиденциальности</a></footer>
         </div>
       </section>

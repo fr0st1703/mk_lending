@@ -1,0 +1,12 @@
+import { DatabaseSync } from 'node:sqlite';
+const path = process.env.DATABASE_PATH || 'data/landing.sqlite';
+const sql = new DatabaseSync(path, { timeout: 5000 });
+const d = new Date(); const day = d.getUTCDate(); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() - 2);
+d.setUTCDate(Math.min(day, new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate()));
+sql.exec('PRAGMA secure_delete=ON');
+sql.prepare('DELETE FROM leads WHERE created_at < ?').run(d.toISOString());
+sql.prepare('DELETE FROM sessions WHERE expires < ?').run(Date.now());
+sql.prepare('DELETE FROM rate_limits WHERE expires < ?').run(Date.now());
+sql.prepare('DELETE FROM views WHERE hour < ?').run(new Date(Date.now() - 31 * 86400000).toISOString());
+sql.exec('PRAGMA wal_checkpoint(TRUNCATE)'); sql.close();
+console.log('Просроченные данные удалены.');

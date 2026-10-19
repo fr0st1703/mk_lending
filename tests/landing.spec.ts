@@ -55,7 +55,8 @@ test('FAQ keeps at most one answer open and supports keyboard', async ({ page })
   await expect(second).toHaveAttribute('aria-expanded', 'false');
 });
 
-test('form validates fields, focuses the first error, keeps data on real 503', async ({ page }) => {
+test('form validates fields, focuses the first error, keeps data on server 503', async ({ page }) => {
+  await page.route('**/api/leads', route => route.fulfill({ status: 503, json: { saved: false } }));
   await page.goto('/#contact');
   await page.getByRole('button', { name: 'Отправить заявку' }).click();
   await expect(page.locator('#full_name')).toBeFocused();
@@ -217,9 +218,10 @@ test('server-rendered SEO, contacts and honest API boundary', async ({ request }
   expect(html).toContain('<html lang="ru"');
   expect(html).toContain('application/ld+json');
   expect(html).toContain('mailto:m.kozlov76@yandex.ru');
-  expect(html).toContain('tel:+79679804740');
+  expect(html).toContain('https://www.instagram.com/guardian1703/');
+  expect(html).not.toContain('tel:+79679804740');
   expect((html.match(/<h1\b/g) || []).length).toBe(1);
-  expect((await request.post('/api/leads', { data: {} })).status()).toBe(503);
+  expect((await request.post('/api/leads', { data: {}, headers: { Origin: 'http://127.0.0.1:3100' } })).status()).toBe(422);
   expect((await request.get('/robots.txt')).status()).toBe(200);
   expect((await request.get('/privacy')).status()).toBe(200);
 });

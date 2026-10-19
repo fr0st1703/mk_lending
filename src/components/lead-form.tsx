@@ -9,6 +9,7 @@ export function LeadForm() {
   const form = useRef<HTMLFormElement>(null);
   const confirmation = useRef<HTMLDivElement>(null);
   const lock = useRef(false);
+  const attempt = useRef<{ payload: string; key: string } | null>(null);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   async function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -26,7 +27,9 @@ export function LeadForm() {
     }
     lock.current = true; setErrors({}); setStatus('sending');
     try {
-      const response = await fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(result.data), signal: AbortSignal.timeout(15000) });
+      const payload = JSON.stringify(result.data);
+      if (attempt.current?.payload !== payload) attempt.current = { payload, key: crypto.randomUUID() };
+      const response = await fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': attempt.current.key }, body: payload, signal: AbortSignal.timeout(15000) });
       const body = await response.json();
       // This contract requires server confirmation of persistence, not just HTTP 200.
       if (!response.ok || body.saved !== true || typeof body.id !== 'string' || !body.id) throw new Error('Unconfirmed submission');
@@ -47,11 +50,10 @@ export function LeadForm() {
           <div className="field"><label htmlFor="phone">Телефон <span aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Код страны и номер" required maxLength={40} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? 'phone-error' : undefined} onChange={() => clear('phone')} />{errors.phone ? <p className="field-error" id="phone-error">{errors.phone}</p> : null}</div>
         </div>
         <div className="field message-field"><label htmlFor="message">Описание задачи <span aria-hidden="true">*</span></label><textarea id="message" name="message" placeholder="Что нужно автоматизировать?" required minLength={10} maxLength={2000} aria-invalid={!!errors.message} aria-describedby={`message-hint${errors.message ? ' message-error' : ''}`} onChange={() => clear('message')} /><p className="field-hint" id="message-hint">Опишите задачу своими словами.</p>{errors.message ? <p className="field-error" id="message-error">{errors.message}</p> : null}</div>
-        <div className="consent"><label><input type="checkbox" name="privacy_consent" required aria-invalid={!!errors.privacy_consent} aria-describedby={errors.privacy_consent ? 'privacy_consent-error' : undefined} onChange={() => clear('privacy_consent')} /><span>Даю согласие на обработку персональных данных</span></label><a href="/privacy" target="_blank" rel="noopener">Политика конфиденциальности<span className="sr-only"> (в новой вкладке)</span></a>{errors.privacy_consent ? <p className="field-error" id="privacy_consent-error">{errors.privacy_consent}</p> : null}</div>
+        <div className="consent"><label><input type="checkbox" name="privacy_consent" required aria-invalid={!!errors.privacy_consent} aria-describedby={errors.privacy_consent ? 'privacy_consent-error' : undefined} onChange={() => clear('privacy_consent')} /><span>Даю согласие на обработку персональных данных</span></label><a href="/consent" target="_blank" rel="noopener">Текст согласия<span className="sr-only"> (в новой вкладке)</span></a><a href="/privacy" target="_blank" rel="noopener">Политика конфиденциальности<span className="sr-only"> (в новой вкладке)</span></a>{errors.privacy_consent ? <p className="field-error" id="privacy_consent-error">{errors.privacy_consent}</p> : null}</div>
         <div className="honeypot" aria-hidden="true"><label htmlFor="website">Ваш сайт</label><input id="website" name="website" tabIndex={-1} autoComplete="off" /></div>
         <div aria-live="polite" aria-atomic="true">{status === 'error' ? <p className="submit-error" role="alert">Не удалось отправить заявку. Данные сохранены в форме. Попробуйте ещё раз.</p> : null}{status === 'sending' ? <span className="sr-only">Отправляем заявку…</span> : null}</div>
         <button className="button button-primary submit-button" disabled={status === 'sending'} type="submit">{status === 'sending' ? 'Отправляем…' : 'Отправить заявку'}</button>
-        <p className="form-availability">Приём заявок через форму готовится. Сейчас можно <a href="https://t.me/up_netw0rk" target="_blank" rel="noopener noreferrer">написать мне в Telegram</a>.</p>
         <noscript><p>Для отправки формы включите JavaScript или свяжитесь со мной по контактам ниже.</p></noscript>
       </form>
     </>}

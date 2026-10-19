@@ -1,0 +1,100 @@
+import { test, expect, type APIRequestContext } from '@playwright/test';
+import { randomUUID } from 'node:crypto';
+import { DatabaseSync } from 'node:sqlite';
+import ExcelJS from 'exceljs';
+import AxeBuilder from '@axe-core/playwright';
+const origin = { Origin: 'http://127.0.0.1:3100' };
+const payload = { full_name: 'ТЕСТ — удалить', phone: '+70000000000', message: '=1+1 Тестовый запрос, не клиент.', privacy_consent: true, website: '' };
+async function login(request: APIRequestContext) {
+  expect((await request.post('/api/admin/session', { headers: origin, data: { password: 'test-only-admin-password' } })).status()).toBe(200);
+}
+test('backend validates, persists once, protects access, exports text and revokes session', async ({ request }) => {
+  expect((await request.get('/api/admin/export')).status()).toBe(401);
+  expect((await request.patch('/api/admin/leads/unknown', { headers: origin, data: { status: 'closed' } })).status()).toBe(401);
+  expect((await request.post('/api/leads', { headers: { Origin: 'https://evil.example' }, data: payload })).status()).toBe(403);
+  expect((await request.post('/api/leads', { headers: origin, data: { ...payload, privacy_consent: false } })).status()).toBe(422);
+  expect((await request.post('/api/leads', { headers: origin, data: { ...payload, website: 'spam' } })).status()).toBe(422);
+  expect((await request.post('/api/leads', { headers: origin, data: '{bad', })).status()).toBe(415);
+  expect((await request.post('/api/leads', { headers: { ...origin, 'Content-Type': 'application/json' }, data: Buffer.from('{bad') })).status()).toBe(400);
+  expect((await request.post('/api/leads', { headers: { ...origin, 'Content-Type': 'application/json' }, data: Buffer.from('x'.repeat(17000)) })).status()).toBe(413);
+  const headers = { ...origin, 'Idempotency-Key': randomUUID() };
+  const replies = await Promise.all([request.post('/api/leads', { headers, data: payload }), request.post('/api/leads', { headers, data: payload })]);
+  expect(replies.map(r => r.status()).sort()).toEqual([200, 201]);
+  const first = await replies[0].json(); expect(first.saved).toBe(true); expect((await replies[1].json()).id).toBe(first.id);
+  const persisted = new DatabaseSync(process.env.TEST_DATABASE_PATH!);
+  expect(persisted.prepare('SELECT phone FROM leads WHERE id = ?').get(first.id)?.phone).toBe(payload.phone); persisted.close();
+  expect((await request.post('/api/leads', { headers, data: { ...payload, message: 'Другой текст заявки' } })).status()).toBe(409);
+  await login(request);
+  expect((await request.patch(`/api/admin/leads/${first.id}`, { headers: origin, data: { status: 'in_progress' } })).status()).toBe(200);
+  const exported = await request.get('/api/admin/export'); expect(exported.status()).toBe(200);
+  const workbook = new ExcelJS.Workbook(); await workbook.xlsx.load(await exported.body() as unknown as ExcelJS.Buffer);
+  const sheet = workbook.getWorksheet('Заявки')!;
+  expect(sheet.rowCount).toBe(2); expect(sheet.getCell('D2').value).toBe(payload.phone);
+  expect(sheet.getCell('E2').value).toBe(payload.message); expect(sheet.getCell('E2').type).toBe(ExcelJS.ValueType.String);
+  expect(sheet.getCell('F2').value).toBe('В работе');
+  expect((await request.delete(`/api/admin/leads/${first.id}`, { headers: origin })).status()).toBe(200);
+  const cookie = (await request.storageState()).cookies.find(c => c.name === 'mk_admin')!;
+  expect(cookie.httpOnly).toBe(true); expect(cookie.sameSite).toBe('Strict');
+  expect((await request.delete('/api/admin/session', { headers: origin })).status()).toBe(200);
+  expect((await request.get('/api/admin/export', { headers: { Cookie: `mk_admin=${cookie.value}` } })).status()).toBe(401);
+});
+test('admin supports login, empty state, search, mobile, accessibility and logout', async ({ page }) => {
+  await page.goto('/admin'); await expect(page.getByRole('heading', { name: 'Заявки под рукой' })).toBeVisible();
+  await page.getByLabel('Пароль администратора').fill('test-only-admin-password');
+  await page.getByRole('button', { name: 'Войти в панель' }).click();
+  await expect(page.getByRole('heading', { name: 'Заявки и состояние сайта' })).toBeVisible();
+  await expect(page.getByText('Здесь появится первая заявка')).toBeVisible();
+  for (const width of [1440, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze()).violations).toEqual([]);
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.screenshot({ path: 'qa/screenshots/admin-desktop.png', fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: 'qa/screenshots/admin-mobile.png', fullPage: true });
+  await page.goto('/#contact');
+  await page.getByLabel('ФИО').fill('ТЕСТ — проверка панели');
+  await page.getByLabel('Телефон').fill('+70000000000');
+  await page.getByLabel('Описание задачи').fill('Тестовая заявка для проверки интерфейса администратора.');
+  await page.locator('[name=privacy_consent]').check();
+  await page.getByRole('button', { name: 'Отправить заявку' }).click();
+  await expect(page.getByRole('heading', { name: 'Заявка отправлена' })).toBeVisible();
+  await page.goto('/admin');
+  await expect(page.getByRole('heading', { name: 'ТЕСТ — проверка панели' })).toBeVisible();
+  await page.getByLabel('Статус заявки', { exact: true }).selectOption('in_progress');
+  await expect(page.getByLabel('Статус заявки', { exact: true })).toHaveValue('in_progress');
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.screenshot({ path: 'qa/screenshots/admin-with-lead-desktop.png', fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: 'qa/screenshots/admin-with-lead-mobile.png', fullPage: true });
+  expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze()).violations).toEqual([]);
+  await page.getByRole('button', { name: 'Удалить', exact: true }).click();
+  await page.getByRole('button', { name: 'Да, удалить', exact: true }).click();
+  await expect(page.getByText('Здесь появится первая заявка')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Поиск заявок' }).fill('нет совпадений');
+  await page.getByRole('button', { name: 'Найти', exact: true }).click();
+  await expect(page.getByText('Ничего не найдено')).toBeVisible();
+  await page.getByRole('button', { name: 'Выйти', exact: true }).click();
+  await expect(page.getByLabel('Пароль администратора')).toBeVisible();
+});
+test('retention removes expired leads and view counter stores aggregate counts only', async ({ request }) => {
+  const sql = new DatabaseSync(process.env.TEST_DATABASE_PATH!);
+  const oldId = randomUUID();
+  sql.prepare('INSERT INTO leads VALUES (?,?,?,?,?,?,?,?,?,?)').run(oldId, 'Тест просроченный', '+70000000000', 'Запись старше двух месяцев', 'new', '2020-01-01T00:00:00.000Z', '2020-01-01T00:00:00.000Z', '2026-10-18', randomUUID(), 'test');
+  await login(request); // Triggers maintenance.
+  expect(sql.prepare('SELECT id FROM leads WHERE id = ?').get(oldId)).toBeUndefined();
+  const before = Number(sql.prepare('SELECT coalesce(sum(count),0) n FROM views').get()?.n);
+  expect((await request.post('/api/views', { headers: origin })).status()).toBe(200);
+  expect(Number(sql.prepare('SELECT sum(count) n FROM views').get()?.n)).toBe(before + 1);
+  expect(sql.prepare('PRAGMA table_info(views)').all().map(c => c.name)).toEqual(['hour', 'count']); sql.close();
+});
+test('lead rate limit is persisted and returns Retry-After', async ({ request }) => {
+  let status = 0;
+  for (let n = 0; n < 31 && status !== 429; n++) status = (await request.post('/api/leads', { headers: origin, data: {} })).status();
+  expect(status).toBe(429);
+  const r = await request.post('/api/leads', { headers: origin, data: {} });
+  expect(r.status()).toBe(429); expect(r.headers()['retry-after']).toBe('600');
+  const sql = new DatabaseSync(process.env.TEST_DATABASE_PATH!);
+  sql.prepare("DELETE FROM rate_limits WHERE key LIKE 'leads:%'").run(); sql.close();
+});
