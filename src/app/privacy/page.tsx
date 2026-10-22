@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-export const metadata: Metadata = { title: 'Политика обработки данных — Mihail Kozlov', robots: { index: false, follow: false }, alternates: { canonical: '/privacy' } };
+import { siteUrl } from '@/lib/site';
+export const metadata: Metadata = { title: 'Политика обработки данных — Mihail Kozlov', robots: { index: false, follow: false }, alternates: { canonical: siteUrl ? '/privacy' : null } };
 export default function Privacy() {
   return <main className="legal-page container"><a className="wordmark" href="/">Mihail Kozlov</a><article className="glass"><h1>Политика обработки персональных данных</h1>
     <p className="legal-status">Редакция от 18 октября 2026 года</p>

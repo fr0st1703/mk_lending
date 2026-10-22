@@ -9,6 +9,7 @@
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "admin:setup": "node scripts/setup-admin.mjs",
+    "admin:password": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/change-admin-password.ps1",
     "db:cleanup": "node --env-file-if-exists=.env.local scripts/cleanup-data.mjs",
     "test:e2e": "playwright test",
     "assets": "node scripts/prepare-assets.mjs",

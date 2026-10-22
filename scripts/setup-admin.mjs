@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 const path = '.env.local';
 let env = existsSync(path) ? readFileSync(path, 'utf8') : '';
 if (/^ADMIN_PASSWORD_HASH=.+/m.test(env)) {
-  console.error('Администратор уже настроен. Для смены пароля удалите ADMIN_PASSWORD_HASH из .env.local и повторите настройку.'); process.exit(1);
+  console.error('Администратор уже настроен. Для смены пароля выполните npm run admin:password.'); process.exit(1);
 }
 const password = randomBytes(18).toString('base64url');
 const salt = randomBytes(16).toString('hex');

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { EmailContact } from '@/components/email-contact';
 import { VisitCounter } from '@/components/visit-counter';
 import { Header } from '@/components/header';
@@ -8,16 +9,33 @@ import { LeadForm } from '@/components/lead-form';
 import { Reveals } from '@/components/reveals';
 import { ScientificArtwork } from '@/components/scientific-artwork';
 import { services, steps, tasks } from '@/lib/content';
-import { siteUrl } from '@/lib/site';
+import { description, siteUrl, title } from '@/lib/site';
+
+export const metadata: Metadata = {
+  alternates: { canonical: siteUrl ? '/' : null },
+};
 
 export default function Home() {
   const structuredData = {
-    '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'Михаил Козлов — автоматизация бизнеса',
-    description: 'Разработка ботов, CRM, сайтов и проектирование автоматизации под процессы бизнеса.',
-    ...(siteUrl ? { url: siteUrl } : {}), email: 'm.kozlov76@yandex.ru', telephone: '+79679804740',
-    sameAs: ['https://t.me/up_netw0rk', 'https://www.instagram.com/guardian1703/', 'https://github.com/fr0st1703'],
-    founder: { '@type': 'Person', name: 'Михаил Козлов', alternateName: 'Mihail Kozlov' },
-    hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Автоматизация бизнеса', itemListElement: services.map(service => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: service.title, description: service.text } })) },
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person', '@id': siteUrl ? `${siteUrl}/#person` : '#person',
+        name: 'Михаил Козлов', alternateName: 'Mihail Kozlov', jobTitle: 'Разработчик решений для автоматизации бизнеса',
+        ...(siteUrl ? { url: `${siteUrl}/`, image: `${siteUrl}/assets/portrait-hero-960.webp` } : {}),
+        email: 'm.kozlov76@yandex.ru', telephone: '+79679804740',
+        sameAs: ['https://t.me/up_netw0rk', 'https://www.instagram.com/guardian1703/', 'https://github.com/fr0st1703'],
+      },
+      ...(siteUrl ? [
+        { '@type': 'WebSite', '@id': `${siteUrl}/#website`, url: `${siteUrl}/`, name: 'Mihail Kozlov', inLanguage: 'ru', publisher: { '@id': `${siteUrl}/#person` } },
+        { '@type': 'WebPage', '@id': `${siteUrl}/#webpage`, url: `${siteUrl}/`, name: title, description, inLanguage: 'ru', isPartOf: { '@id': `${siteUrl}/#website` }, about: { '@id': `${siteUrl}/#person` } },
+      ] : []),
+      ...services.map(service => ({
+        '@type': 'Service', name: service.title, description: service.text,
+        provider: { '@id': siteUrl ? `${siteUrl}/#person` : '#person' },
+        ...(siteUrl ? { url: `${siteUrl}/#services` } : {}),
+      })),
+    ],
   };
   return <>
     <VisitCounter />

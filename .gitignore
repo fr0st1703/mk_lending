@@ -18,3 +18,12 @@ qa/createya/
 qa/logo-preview-white.png
 design/generated/*-run.json
 *.log
+
+# Local deployment bundles and private server configuration
+qa/deploy/
+
+# Private TLS material
+/SSL Serts/
+*.key
+*.pfx
+*.p12

@@ -1,0 +1,14 @@
+[Unit]
+Description=Remove expired MK landing data
+
+[Service]
+Type=oneshot
+User=mk-landing
+Group=mk-landing
+EnvironmentFile=/etc/mk-landing.env
+ExecStart=/usr/bin/node /opt/mk-landing/current/scripts/cleanup-data.mjs
+UMask=0077
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/mk-landing
